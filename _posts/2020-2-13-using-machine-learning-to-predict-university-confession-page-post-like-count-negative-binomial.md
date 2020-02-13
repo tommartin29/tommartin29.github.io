@@ -25,14 +25,15 @@ I am using a python module named “[Facebook-Scraper](https://pypi.org/project/
 
 First, I am going to scrape 50,000 pages of each (should be enough to capture all), and mark each with a 1, depending on which page they are from.
 
-{% highlight python %}
+```python
+
 df_durfess = pd.DataFrame(get_posts("Durfess", pages=50000))
 df_durfess['durfess'] = 1
 
 df_exefess = pd.DataFrame(get_posts("ExeFess-110674570384545", pages=50000))
 df_exefess['exefess'] = 1
-{% endhighlight %}
 
+```
 
 ---
 
