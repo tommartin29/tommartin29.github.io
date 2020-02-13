@@ -10,6 +10,7 @@ description: Learning Data Science
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars2.githubusercontent.com/u/47322310?s=400&u=023800beb32bddc1b449aec7fe8bc44da5b1f692&v=4
+remote_theme: thelehhman/plainwhite-jekyll
 
 #
 # Flags below are optional
