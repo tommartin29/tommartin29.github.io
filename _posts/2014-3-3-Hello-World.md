@@ -1,14 +1,5 @@
 ---
 
-firstPublishedAt: 1581616038226
-latestPublishedAt: 1581616038226
-slug: using-machine-learning-to-predict-university-confession-page-post-like-count-negative-binomial
-title: Using Machine Learning to predict University Confession Page post like count (Negative Binomial…
-
----
-
-![Exefess](https://cdn-images-1.medium.com/max/5084/1*Y8GjMawVlYcoay66vE5YFw.png)
-
 University confession pages have exploded in popularity in recent years. 19,526 people are following the Durham University page “[Durfess](http://facebook.com/Durfess)”, that is 104% of Durham’s student population [(2018/19)](https://www.dur.ac.uk/about/facts/).
 
 Exeter University had the original “ExeHonestly” page shut down, and clones appeared and gained popularity within hours.
