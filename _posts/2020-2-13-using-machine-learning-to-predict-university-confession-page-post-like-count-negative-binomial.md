@@ -27,7 +27,7 @@ I am using a python module named “[Facebook-Scraper](https://pypi.org/project/
 
 First, I am going to scrape 50,000 pages of each (should be enough to capture all), and mark each with a 1, depending on which page they are from.
 
-```
+```python
 df_durfess = pd.DataFrame(get_posts("Durfess", pages=50000))
 df_durfess['durfess'] = 1
 
