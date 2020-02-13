@@ -1,7 +1,5 @@
 ---
 
-firstPublishedAt: 1581616038226
-latestPublishedAt: 1581616038226
 slug: using-machine-learning-to-predict-university-confession-page-post-like-count-negative-binomial
 title: "Using Machine Learning to predict University Confession Page post like count (Negative Binomial Model)"
 
@@ -42,36 +40,43 @@ df_exefess['exefess'] = 1
 
 Merging the datasets, removing the new lines and removing the common #Durfess and #Exefess posts. Other punctuation will be removed later.
 
-```
+{% highlight python %}
 df = pd.merge(df_durfess, df_exefess, how='outer')
 df = df.replace({r'\s+$': '', r'^\s+': ''},
                 regex=True).replace(r'\n',  ' ', regex=True)
 df.replace(r'\\s', '', regex=True, inplace=True)
 df.replace(r'#.+?\b', "", regex=True, inplace=True)
-```
+{% endhighlight %}
+
 
 We are going to remove any shared posts. This is because on these confession pages, these are adverts for t-shirts or the sharing of the submission link. These are not relevant to our analysis and so it makes sense to remove all of them.
 
-```
+{% highlight python %}
+
 df['shared_text'].replace('', np.nan, inplace=True)
 df.fillna({'durfess': 0, 'exefess': 0, 'shared_text': 0}, inplace=True)
 df = df[df.shared_text == 0]
-```
+{% endhighlight %}
+
 
 Next, I am going to add indicator variables for whether the post contains a link or an image. We will then remove the image’s and links. A future version of this analysis could analyse the contents.
 
-```
+{% highlight python %}
+
 df['haslink'] = df['link'].apply(lambda x: 0 if x == None else 1)
 df['haspicture'] = df['image'].apply(lambda x: 0 if x == None else 1)
-```
+{% endhighlight %}
+
 
 Dropping unneeded columns.
 
-```
+{% highlight python %}
+
 df.drop(columns=[“link”, “image”, “shared_text”,
  “text”, “shares”, “post_url”], inplace=True)
 df
-```
+{% endhighlight %}
+
 
 ![Our Dataset after cleaning.](https://cdn-images-1.medium.com/max/3518/1*MjMFSE165UXa6_DWo315vw.png)
 
@@ -85,7 +90,8 @@ Mean likes is about 58, but max is 18,405. This, and the 75th percentile both su
 
 **Boxplots**
 
-```
+{% highlight python %}
+
 fig_bp, (ax1_bp, ax2_bp) = plt.subplots(1, 2, sharey=True, figsize=(15,8))
 
 durfessdata = df[df['durfess'] == 1]
@@ -97,15 +103,18 @@ ax1_bp.set_title('Durfess')
 ax2_bp.set_title('Exefess')
 
 plt.show()
-```
+{% endhighlight %}
+
 
 ![](https://cdn-images-1.medium.com/max/2002/1*I6MLZNFACYr7TCVSXHxOzA.png)
 
 As you can see, the outlier is a big one, and comes from the Durfess data. Let’s look at these individual observations and see if there is anything special about them.
 
-```
+{% highlight python %}
+
 df[df['likes'] > 2500]
-```
+{% endhighlight %}
+
 
 ![](https://cdn-images-1.medium.com/max/3038/1*jjP9JS8RW1gIJ2ALbUxO_A.png)
 
