@@ -1,4 +1,8 @@
 ---
+layout: post
+title:  "Using Machine Learning to predict University Confession Page post like count (Negative Binomial Regression)"
+---
+
 
 University confession pages have exploded in popularity in recent years. 19,526 people are following the Durham University page “[Durfess](http://facebook.com/Durfess)”, that is 104% of Durham’s student population [(2018/19)](https://www.dur.ac.uk/about/facts/).
 
